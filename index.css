@@ -151,8 +151,8 @@ header > div {
 .feed-container {
   padding: 4rem 0; /* 64px */
   display: grid;
-  grid-template-columns: 1fr 0.3fr;
-  width: 84%;
+  grid-template-columns: 1fr;
+  width: 90%;
   gap: 3rem;
   max-width: 1280px;
 }
@@ -285,6 +285,10 @@ header > div {
   }
   .banner {
     padding: 40px 0;
+  }
+  .feed-container {
+    grid-template-columns: 1fr 0.3fr;
+    width: 84%;
   }
 }
 

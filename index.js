@@ -19,7 +19,26 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => {
       console.error("Error fetching data:", error);
     });
+  fetch(
+    "https://apisitem.ecommcube.com/api/public/industry_template_data/65f0aa0e87406689f2ece77c/661e433e5ef9ee4c88efc8b7/data/logo"
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      displayLogo(data.data[0]);
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
 });
+
+function displayLogo(logo) {
+  const container = document.getElementById("logo");
+  container.innerHTML = "";
+  const logoImg = document.createElement("img");
+  logoImg.src = `https://apisitem.ecommcube.com/images/industry_template_images/661e433e5ef9ee4c88efc8b7/${logo.file_name}`;
+  logoImg.alt = "Logo";
+  container.appendChild(logoImg);
+}
 
 function displayBanner(bannerData) {
   const container = document.getElementById("banner");
@@ -27,7 +46,7 @@ function displayBanner(bannerData) {
 
   const bannerImg = document.createElement("img");
   bannerImg.src = `https://apisitem.ecommcube.com/images/industry_template_images/661e433e5ef9ee4c88efc8b7/${bannerData.file_name}`;
-  bannerImg.alt = "Background Image";
+  bannerImg.alt = "BackgroundBanner";
   bannerImg.setAttribute("fetchpriority", "high");
   bannerImg.setAttribute("loading", "eager");
   bannerImg.setAttribute("decoding", "async");
